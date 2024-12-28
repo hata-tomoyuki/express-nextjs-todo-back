@@ -42,7 +42,6 @@ export class PostController extends Controller {
     }
   }
 
-  @Response<ValidateErrorJSON>(404, "User's posts not found")
   @Response<ValidateErrorJSON>(500, "Internal Server Error")
   @Get("user/{userId}/posts")
   public async getPostsByUser(
@@ -52,10 +51,6 @@ export class PostController extends Controller {
       const posts = await prisma.post.findMany({
         where: { authorId: userId },
       });
-      if (posts.length === 0) {
-        this.setStatus(404);
-        return [];
-      }
       return posts;
     } catch (error) {
       this.setStatus(500);
