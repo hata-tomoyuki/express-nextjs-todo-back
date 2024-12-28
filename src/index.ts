@@ -14,6 +14,10 @@ export const tokenBlacklist: Set<string> = new Set();
 
 const app = express();
 
+app.get("/", (_req, res) => {
+  res.status(200).send("health check OK");
+});
+
 app.use(cors({ origin: process.env.FRONTEND_URL }));
 app.use(urlencoded({ extended: true }));
 app.use(json());

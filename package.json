@@ -7,11 +7,13 @@
         "build": "tsoa spec-and-routes && tsc",
         "lint": "eslint src",
         "lint:fix": "eslint src --fix",
-        "generate": "swagger-typescript-api -p ./build/swagger.json -o ../frontend/schema -n api.ts --modular --unwrap-response-data"
+        "generate": "swagger-typescript-api -p ./build/swagger.json -o ../frontend/schema -n api.ts --modular --unwrap-response-data",
+        "start": "node dist/src/index.js"
     },
     "dependencies": {
         "@prisma/client": "^6.0.1",
         "bcrypt": "^5.1.1",
+        "dotenv": "^16.4.7",
         "express": "^4.21.1",
         "jsonwebtoken": "^9.0.2",
         "prisma": "^6.0.1",
